@@ -39,7 +39,6 @@ right = LCA(root->right,p,q)
 if(left)
 return left;
 return right;
-:)
 5)  If p and q are not left and right, and neither p nor q 
 are in the tree, return nullptr!
 given at the start by
