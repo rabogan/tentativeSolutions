@@ -1,5 +1,3 @@
-import java.util.*;
-
 class RandomizedSet {
     private List<Integer> values;
     private Map<Integer, Integer> value_vectorIndex;
