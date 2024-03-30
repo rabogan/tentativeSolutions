@@ -1,14 +1,3 @@
-/*
-Why do we do this?  Well, counting inversions helps to indicate the SORTEDNESS of the array!
-1)  Calculating the local inversions is simple
-2)  We call merge sort, which is excellent at counting global inversions
-3 )  In side of merge sort, 3 processes occur:
-3a)  We calculate the global inversions in the left subarray
-3b)  We do the same for those in the right subarray
-3c)  Finally, we call mergeSortedSubarrays, which returns the number of global inversions following the D&C calculation!
-4) The mergeSortedSubarrays function itself is slightly tweaked from my own implementation of merge sort.  We do the usual inclusion of a temporary vector, but also use globalConversions = mid-i+1 - once we find a situation where nums[j]>=nums[i]!
-*/
-
 class Solution {
 public:
     vector<int>tmp;
@@ -55,3 +44,20 @@ public:
         return globalInversions==localInversions;
     }
 };
+/*
+Why do we do this?  Well, counting inversions helps to indicate 
+the SORTEDNESS of the array!
+1)  Calculating the local inversions is simple
+2)  We call merge sort, which is excellent at counting 
+global inversions
+3 )  In side of merge sort, 3 processes occur:
+3a)  We calculate the global inversions in the left subarray
+3b)  We do the same for those in the right subarray
+3c)  Finally, we call mergeSortedSubarrays, which returns 
+the number of global inversions following the D&C calculation!
+4) The mergeSortedSubarrays function itself is slightly 
+tweaked from my own implementation of merge sort.  We do 
+the usual inclusion of a temporary vector, but also use 
+globalConversions = mid-i+1 - once we find a situation
+where nums[j]>=nums[i]!
+*/
