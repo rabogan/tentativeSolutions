@@ -1,8 +1,3 @@
-/*
-A basic DP implementation :)
-
-*/
-
 const int MAX = 500+1;
 int memory[MAX][MAX];
 string str1;
