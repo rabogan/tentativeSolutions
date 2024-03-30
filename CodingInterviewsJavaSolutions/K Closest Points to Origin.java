@@ -1,5 +1,3 @@
-import java.util.PriorityQueue;
-
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
         PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a, b) -> getDistance(b) - getDistance(a));
