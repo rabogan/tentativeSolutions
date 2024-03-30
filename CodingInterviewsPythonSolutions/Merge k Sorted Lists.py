@@ -1,5 +1,3 @@
-from heapq import heappush, heappop
-
 class ListNodeComp:
     def __init__(self, node):
         self.node = node
