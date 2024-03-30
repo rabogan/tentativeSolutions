@@ -1,5 +1,3 @@
-from collections import OrderedDict
-
 class FirstUnique:
 
     def __init__(self, nums: List[int]):
