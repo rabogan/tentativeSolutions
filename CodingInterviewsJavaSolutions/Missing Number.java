@@ -11,7 +11,6 @@ class Solution {
         if (actualSum == expectedSum) {
             return sz;
         }
-        
         return expectedSum - actualSum + sz;
     }
 }
