@@ -40,7 +40,6 @@ class Solution {
 
             leaves = newLeaves;
         }
-
         return leaves;
     }
 }
