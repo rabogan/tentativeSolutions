@@ -1,3 +1,20 @@
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root || root==p||root==q)
+            return root;
+        
+        TreeNode* left = lowestCommonAncestor(root->left,p,q);
+        TreeNode* right = lowestCommonAncestor(root->right,p,q);
+        
+        if(left && right)
+            return root;
+        if(left)
+            return left;
+        return right;
+    }
+};
+
 /*
 SAME ENERGY (and, indeed, the same solution) as for LeetCode 236 here:
 https://leetcode.com/submissions/detail/807761388/
@@ -25,20 +42,3 @@ given at the start by
 if(!root || p==root||q==root)
 return root;
  */
-
-class Solution {
-public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if(!root || root==p||root==q)
-            return root;
-        
-        TreeNode* left = lowestCommonAncestor(root->left,p,q);
-        TreeNode* right = lowestCommonAncestor(root->right,p,q);
-        
-        if(left && right)
-            return root;
-        if(left)
-            return left;
-        return right;
-    }
-};
