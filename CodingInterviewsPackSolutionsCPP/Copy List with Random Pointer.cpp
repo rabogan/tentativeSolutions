@@ -1,3 +1,31 @@
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        Node* result = nullptr;
+        Node* newResult = nullptr;
+        unordered_map<Node*,Node*>myMap;
+        
+        for(Node* tempHead = head; tempHead; tempHead = tempHead->next){
+            Node* newNode = new Node(tempHead->val);
+            newNode->random = tempHead->random;
+            myMap[tempHead] = newNode;
+            
+            if(!result)
+                result = newNode;
+            else
+                newResult->next = newNode;
+            
+            newResult = newNode;
+        }
+        
+        for(Node* tempHead = result; tempHead; tempHead = tempHead->next){
+            tempHead->random = myMap[tempHead->random];
+        }
+        
+        return result;
+    }
+};
+
 /*
 SOLUTION:
 The O(N) solution provided here is done with careful sketching out of the nodes!
@@ -26,31 +54,3 @@ public:
     }
 };
 */
-
-class Solution {
-public:
-    Node* copyRandomList(Node* head) {
-        Node* result = nullptr;
-        Node* newResult = nullptr;
-        unordered_map<Node*,Node*>myMap;
-        
-        for(Node* tempHead = head; tempHead; tempHead = tempHead->next){
-            Node* newNode = new Node(tempHead->val);
-            newNode->random = tempHead->random;
-            myMap[tempHead] = newNode;
-            
-            if(!result)
-                result = newNode;
-            else
-                newResult->next = newNode;
-            
-            newResult = newNode;
-        }
-        
-        for(Node* tempHead = result; tempHead; tempHead = tempHead->next){
-            tempHead->random = myMap[tempHead->random];
-        }
-        
-        return result;
-    }
-};
