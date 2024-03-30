@@ -1,5 +1,3 @@
-import java.util.PriorityQueue;
-
 class Solution {
     public int maximumProduct(int[] nums) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
