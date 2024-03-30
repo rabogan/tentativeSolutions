@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Stack;
-
 class Solution {
     public void prefixSumColumnVariant(int[][] matrix) {
         int rows = matrix.length;
