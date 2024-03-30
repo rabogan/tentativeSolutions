@@ -1,4 +1,3 @@
-# https://leetcode.com/problems/max-value-of-equation/discuss/1107702/Python-3-or-Heap
 class Solution:
     def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
         max_val = float("-inf")
@@ -11,3 +10,5 @@ class Solution:
                 max_val = max(max_val, -heap[0][0]+points[i][0]+points[i][1])
             heapq.heappush(heap, (-points[i][1]+points[i][0], points[i][0])) 
         return max_val
+
+# Credit to this:  https://leetcode.com/problems/max-value-of-equation/discuss/1107702/Python-3-or-Heap
