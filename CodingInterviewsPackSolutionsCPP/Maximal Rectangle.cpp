@@ -51,7 +51,6 @@ public:
             int area = heights[i]*(right-left+1);
             maxArea = max(maxArea,area);
         }
-        
         return maxArea;
     }
     
@@ -77,7 +76,6 @@ public:
         for(int r = 0; r < rows; r++){
             maxArea = max(maxArea,largestRectangle(matrix2[r]));
         }
-        
         return maxArea;
     }
 };
@@ -89,12 +87,15 @@ https://leetcode.com/submissions/detail/804815630/  (LeetCode 84)
 We want the AREA of a rectangle, and will use histograms to get it
 The TLDR:
 We will convert our matrix into a histogram integer matrix.
-Each row in our new matrix will be used as the BASE to calculate the area of a rectangle
+Each row in our new matrix will be used as the BASE to 
+calculate the area of a rectangle
 
 1)  Try EVERY row in our matrix, but as the base of a rectangle
 2)  Step ZERO: don't forget to return 0 is the matrix is 0
-3)  Firstly, convert the char matrix into an integer matrix.  Make a duplicate matrix for this!!!
-4)  Perform a special function, prefix_sum_column_variant, to change our int matrix
+3)  Firstly, convert the char matrix into an integer matrix.
+Make a duplicate matrix for this!!!
+4)  Perform a special function, prefix_sum_column_variant, 
+to change our int matrix
 into a histogram
 i.e.
 1 0 1 0 1   -------\    1 0 1 0 1
@@ -103,7 +104,10 @@ i.e.
 1 0 0 1 1           /   4 0 0 3 1
 0 0 1 0 0   -------/    0 0 1 0 2
 
-Each ROW in the histogram here^ will be used as the VECTOR; inserted into the largestRectangleArea problem
-When all is set up (i.e. the 3 functions NSE, PSE and largest rectangle area), the area calculation should
-be relatively easy!  That said, this code will take a long LONG time!
+Each ROW in the histogram here^ will be used as the VECTOR; 
+inserted into the largestRectangleArea problem
+When all is set up (i.e. the 3 functions NSE, PSE and largest 
+rectangle area), the area calculation should
+be relatively easy!  That said, this code will take a long 
+LONG time!
 */
