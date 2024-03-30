@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     public int minimumOperations(int[] nums, int start, int goal) {
         Queue<Integer> q = new LinkedList<>();
