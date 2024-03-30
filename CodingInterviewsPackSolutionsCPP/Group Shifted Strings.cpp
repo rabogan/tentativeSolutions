@@ -1,3 +1,28 @@
+class Solution {
+public:
+    string canonical(const string&s){
+        string t;
+        int diff = s[0]-'a';
+        for(int i = 0; i < s.size(); i++){
+            t+='a'+(s[i]-'a'-diff+26)%26;
+        }
+        return t;
+    }
+    
+    vector<vector<string>> groupStrings(vector<string>& strings) {
+        unordered_map<string,vector<string>>myMap;
+        int sz = strings.size();
+        for(int i = 0; i < sz; i++){
+            myMap[canonical(strings[i])].push_back(strings[i]);
+        }
+        vector<vector<string>>result;
+        for(auto&p:myMap)
+            result.push_back(p.second);
+        
+        return result;
+    }
+};
+
 /*
 1) It's clear that conversion of the strings to canonical form will make them easy to group!
 
@@ -45,28 +70,3 @@ for(auto&p:myMap)
   
 8)  ALL DONE!
  */
-
-class Solution {
-public:
-    string canonical(const string&s){
-        string t;
-        int diff = s[0]-'a';
-        for(int i = 0; i < s.size(); i++){
-            t+='a'+(s[i]-'a'-diff+26)%26;
-        }
-        return t;
-    }
-    
-    vector<vector<string>> groupStrings(vector<string>& strings) {
-        unordered_map<string,vector<string>>myMap;
-        int sz = strings.size();
-        for(int i = 0; i < sz; i++){
-            myMap[canonical(strings[i])].push_back(strings[i]);
-        }
-        vector<vector<string>>result;
-        for(auto&p:myMap)
-            result.push_back(p.second);
-        
-        return result;
-    }
-};
