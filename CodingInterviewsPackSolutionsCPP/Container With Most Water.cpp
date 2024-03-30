@@ -1,16 +1,3 @@
-/*
-The BF solution is very simple, but will TLE
-The approach is clearly about using 2 pointers, because
-Prefix/CumSum needs a minimum among the boundaries (not okay here)
-Sliding windows depend only on boundaries, and not at all on the body
-
-Key to the 2-pointers approach is to move from
-the side with the LOWER value!  (Start from far-left and far-right) :)
-
-O(N) in time
-O(1) in memory
-*/
-
 class Solution {
 public:
     int maxArea(vector<int>& height) {
@@ -28,3 +15,16 @@ public:
         return area;
     }
 };
+
+/*
+The BF solution is very simple, but will TLE
+The approach is clearly about using 2 pointers, because
+Prefix/CumSum needs a minimum among the boundaries (not okay here)
+Sliding windows depend only on boundaries, and not at all on the body
+
+Key to the 2-pointers approach is to move from
+the side with the LOWER value!  (Start from far-left and far-right) :)
+
+O(N) in time
+O(1) in memory
+*/
