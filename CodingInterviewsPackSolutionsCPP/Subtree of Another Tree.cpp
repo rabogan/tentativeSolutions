@@ -1,3 +1,27 @@
+class Solution {
+public:
+    string toStr(int n){
+        ostringstream oss;
+        oss<<n;
+        return oss.str();
+    }
+    
+    string parenthesize(TreeNode*root){
+        if(!root)
+            return "()";
+        
+        string left = parenthesize(root->left);
+        string right = parenthesize(root->right);
+        
+        return "("+toStr(root->val)+left+right+")";
+    }
+    
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        string big = parenthesize(root);
+        string small = parenthesize(subRoot);
+        return big.find(small)!=string::npos;
+    }
+};
 /*
 This is the LINEAR time approach, with parenthesize in O(N) time, and
 the rest done in O(N+M) time, due to KMP 
@@ -26,28 +50,3 @@ UTILITY FUNCTION (CONVERTING INTEGER TO STRING):
 2)  We use the ostringstream, and simply read in the n into it
 3)  We return the oss.str() output!  Simple!
  */
-
-class Solution {
-public:
-    string toStr(int n){
-        ostringstream oss;
-        oss<<n;
-        return oss.str();
-    }
-    
-    string parenthesize(TreeNode*root){
-        if(!root)
-            return "()";
-        
-        string left = parenthesize(root->left);
-        string right = parenthesize(root->right);
-        
-        return "("+toStr(root->val)+left+right+")";
-    }
-    
-    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        string big = parenthesize(root);
-        string small = parenthesize(subRoot);
-        return big.find(small)!=string::npos;
-    }
-};
