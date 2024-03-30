@@ -15,7 +15,6 @@ class Solution {
                 startCol--;
             }
         }
-
         return false;
     }
 }
