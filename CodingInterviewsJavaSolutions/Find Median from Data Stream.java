@@ -1,5 +1,4 @@
 class MedianFinder {
-
     private PriorityQueue<Integer> maxHeap;
     private PriorityQueue<Integer> minHeap;
 
