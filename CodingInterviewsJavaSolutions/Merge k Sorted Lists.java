@@ -1,6 +1,3 @@
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         class ListNodeComp implements Comparator<ListNode> {
