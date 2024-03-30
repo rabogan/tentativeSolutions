@@ -24,13 +24,13 @@ public:
             int nc = dc[d]+c;
             if(!isValid(nr,nc,matrix))
                 continue;
-            
-            if(matrix[r][c] < matrix[nr][nc])   //If the neighbouring node is bigger, we will push it into the 'biggerNeighbours' vector of nodes (used in the bfs below!)
-                edges.push_back({nr,nc});  //3 5
-            else if(matrix[r][c] > matrix[nr][nc])  //If the neighbouring node is smaller, it means there's an INCOMING EDGE to the original node!
+
+            if(matrix[r][c] < matrix[nr][nc]) 
+                edges.push_back({nr,nc});
+            else if(matrix[r][c] > matrix[nr][nc]) 
                 incomingEdges++;
         }
-        return {edges,incomingEdges};   // This is return a vector of bigger neighbours, and the number of incoming edges to our node
+        return {edges,incomingEdges}; 
     }
     
     int longestIncreasingPath(vector<vector<int>>& matrix) {
@@ -41,10 +41,8 @@ public:
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
                 incomingEdges[r][c] = biggerNeighboursAndEdges(r,c,matrix).second;
-                //So, all the convoluted calculations in the function above give us the number of incoming edges here!
                 if(incomingEdges[r][c]==0)
-                    q.push({r,c});  //We're adding all our potential 'starts' to the path into the queue!
-                //Our bfs function will cleave off the starts...
+                    q.push({r,c}); 
             }
         }
         int levels = 0;
