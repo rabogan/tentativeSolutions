@@ -1,3 +1,32 @@
+class Solution {
+public:
+    Node* insert(Node* head, int insertVal) {
+        if(!head){
+            head = new Node(insertVal);
+            head->next = head;
+            return head;
+        }
+        
+        Node* cur = head;
+        do{
+            int first = cur->val;
+            int second = cur->next->val;
+            
+            if(first<=insertVal && insertVal<=second)
+                break;
+            
+            if(first > second){
+                if(first<=insertVal||insertVal<=second)
+                    break;
+            }
+            cur = cur->next;
+        }while(cur!=head);
+        
+        cur->next = new Node(insertVal,cur->next);
+        return head;
+    }
+};
+
 /*
 SOLUTION THOUGHT PROCESS:
 This is very much about the TEST CASES!
@@ -31,32 +60,3 @@ After we find our 'A' (or wherever cur happens to finish), we need to insert the
 cur->next = new Node(val,cur->next);
 return head;
 */
-
-class Solution {
-public:
-    Node* insert(Node* head, int insertVal) {
-        if(!head){
-            head = new Node(insertVal);
-            head->next = head;
-            return head;
-        }
-        
-        Node* cur = head;
-        do{
-            int first = cur->val;
-            int second = cur->next->val;
-            
-            if(first<=insertVal && insertVal<=second)
-                break;
-            
-            if(first > second){
-                if(first<=insertVal||insertVal<=second)
-                    break;
-            }
-            cur = cur->next;
-        }while(cur!=head);
-        
-        cur->next = new Node(insertVal,cur->next);
-        return head;
-    }
-};
