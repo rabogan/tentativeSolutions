@@ -54,7 +54,6 @@ class Solution {
             int area = heights[i] * (right - left + 1);
             maxArea = Math.max(area, maxArea);
         }
-
         return maxArea;
     }
 }
