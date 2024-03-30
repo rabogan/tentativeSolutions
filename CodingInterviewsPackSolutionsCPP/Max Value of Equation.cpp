@@ -9,7 +9,8 @@ public:
         
         while(left<n){
             if(!mySet.empty())
-                mySet.erase(mySet.find({points[left][0]+points[left][1],left}));  //Removed the 'old' xj and yj, which are now xi and xj
+                //Removed the 'old' xj and yj, which are now xi and xj
+                mySet.erase(mySet.find({points[left][0]+points[left][1],left}));
                                 
             while(right < n && (points[right][0]-points[left][0]<=k)){  //xj-xi<=k
                 mySet.insert({points[right][0]+points[right][1],right});  //yi + yj
@@ -35,11 +36,13 @@ We are given an integer, k
 We have a set of points, with the X values like so:
 vector<vector<int>>points {{1,3},{2,0},{5,10},{6,-10}};
                             x y
-We want to find the MAX value of an equation: yi+yj+|xi-xj|, when |xi-xj|<=k
-
+We want to find the MAX value of an equation: yi+yj+|xi-xj|, 
+when |xi-xj|<=k
 OBSERVATION:
-1) Firstly, because the X values are presorted, the |xi-xj|<=k can be rearranged:
-xj - xi <=k  Would be a valid value!  If that's the case, then we can have a look at yi and yj, and calculate a value!
+1) Firstly, because the X values are presorted, 
+the |xi-xj|<=k can be rearranged:
+xj - xi <=k  Would be a valid value!  If that's the case, 
+then we can have a look at yi and yj, and calculate a value!
 yi+yj+xj-xi
 
 THE BF APPRAOCH:
@@ -50,9 +53,11 @@ THE BF APPRAOCH:
 SLIDING WINDOW:
 We will iterate left-to-right, using a sliding window
 The window will 'grow', so long as xj-xi<=k
-Using a set will allow us to very quickly add the yj and xj values, as long as that xj-xi<=k condition is met
-1)  In our window itself:
-If a set of coordinates is valid, (i.e. if xj-xi<=k), then we add xj and yj to the set!
+Using a set will allow us to very quickly add the yj and xj 
+values, as long as that xj-xi<=k condition is met
+1) In our window itself:
+If a set of coordinates is valid, (i.e. if xj-xi<=k), then 
+we add xj and yj to the set!
 We're eventually looking for added points of maximum xj and yj!
 while(right<n && ((points[right][0]-points[left][0])<=k))
 {                         xj        -      xi        <=k
@@ -60,12 +65,14 @@ while(right<n && ((points[right][0]-points[left][0])<=k))
                          xj       +       yj
     right++;
 }
-The sliding window is expanded (via right++) to include all valid elements
+The sliding window is expanded (via right++) to include 
+all valid elements
 
-
-2)  The equation has been simplified!  That yi+yj+|xi-xj|<=k is yi+yj+xj-xi (if the pair of points is valid)
+2) The equation has been simplified!  That yi+yj+|xi-xj|<=k 
+is yi+yj+xj-xi (if the pair of points is valid)
 This becomes yi-xi+(xj+yj)
-if(!mySet.empty())  //This means that we have a valid pair of points, remember!!!!
+if(!mySet.empty())  
+//This means that we have a valid pair of points, remember!!!!
 
 yi+yj+xj-xi
 (or, rearranged:  yi-xi+xj+yj)  
@@ -74,19 +81,17 @@ The xj+yj comes from the set,
 the yi is the points[left][0]; the xi is the points[left][0]
 int curMax = points[left[0]]-points[left][1]+mySet.rbegin()->first;
 
-3)  We have to remove the 'left' from the set, if that's what we have!
+3) We have to remove the 'left' from the set, if that's what we have!
 if(!mySet.empty())
    mySet.erase({mySet.find(points[left][0]+points[left][1]),left}); 
    Basically, that loses   NOT    
    It actually removes the 'old' yi and yj, which are now xi and xj
    
 QUICK GUIDE:
-
 x = [0]
 y = [1]
 i = left
 j = right
-
 xi = [left][0]
 xj = [right][0]
 yi = [left][1]
