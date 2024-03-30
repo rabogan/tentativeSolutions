@@ -20,7 +20,6 @@ class Solution {
                 result[idx++] = dq.peekFirst();
             }
         }
-        
         return result;
     }
 }
