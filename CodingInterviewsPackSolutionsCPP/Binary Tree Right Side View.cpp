@@ -1,12 +1,3 @@
-/*
-This is the BFS approach.  The key observations are simple:
-1)   If we have N levels, we need to return N values
-2***) Level-by-level, we want the value from the FINAL node from each
-3) Easily achievable with BFS and the 'size trick'
-3b)  i.e. if we have M nodes at the current level, after we process the
-queue M times, the new added nodes represent the next level's nodes
-4)  And, key, is that when sz-1 == i at each level, we add that to our result vector
- */
 class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
@@ -34,3 +25,12 @@ public:
         return result;
     }
 };
+/*
+This is the BFS approach.  The key observations are simple:
+1)   If we have N levels, we need to return N values
+2***) Level-by-level, we want the value from the FINAL node from each
+3) Easily achievable with BFS and the 'size trick'
+3b)  i.e. if we have M nodes at the current level, after we process the
+queue M times, the new added nodes represent the next level's nodes
+4)  And, key, is that when sz-1 == i at each level, we add that to our result vector
+ */
