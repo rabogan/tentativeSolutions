@@ -1,11 +1,3 @@
-/*
-After basic analysis, this is just connected components counting!
-
-The function first checks if the number of connections is less than n-1, which is the minimum number of edges required to connect all nodes. If this condition is not satisfied, it means that there are disconnected components in the graph, and the function proceeds to create a Union-Find data structure uf with n nodes.
-The function then iterates through each connection in connections and calls the union_set method of uf to join the nodes represented by the current connection. The union_set method first finds the sets to which the nodes belong using the find_set method of uf and then merges the smaller set into the larger set using the link method of uf. If the sets were merged, it decrements the forests counter of uf by 1.
-Finally, the function returns the number of connected components in the graph, which is equal to the number of forests in uf minus 1.
-*/
-
 class UnionFind {
 private:
     vector<int> rank,parent;
@@ -31,7 +23,7 @@ public:
     int find_set(int x) {
         if (x == parent[x])
             return x;
-        // This is the path compression
+        // This is path compression
         // the top parent is returned and we re-link
         return parent[x] = find_set(parent[x]);
     }
@@ -50,7 +42,6 @@ class Solution {
 public:
      int makeConnected(int n, vector<vector<int>>& connections) {
         if((int)connections.size() < n-1)
-            // we must have n-1 edges for a tree
             return -1;
 
         // assume the graph is 3 connected components
@@ -63,3 +54,23 @@ public:
         return uf.forests - 1;
     }
 };
+/*
+After basic analysis, this is just connected components counting!
+
+The function first checks if the number of connections is less 
+than n-1, which is the minimum number of edges required to 
+connect all nodes. If this condition is not satisfied, it 
+means that there are disconnected components in the graph, 
+and the function proceeds to create a Union-Find 
+data structure uf with n nodes.
+The function then iterates through each connection in 
+connections and calls the union_set method of uf to join 
+the nodes represented by the current connection. The union_set 
+method first finds the sets to which the nodes belong using 
+the find_set method of uf and then merges the smaller set into
+the larger set using the link method of uf. If the sets were 
+merged, it decrements the forests counter of uf by 1.
+Finally, the function returns the number of connected components 
+in the graph, which is equal to the number of forests in 
+uf minus 1.
+*/
