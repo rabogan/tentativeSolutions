@@ -1,7 +1,4 @@
-/*
-This TLEs on LeetCode...
-*/
-
+#Note: You have found one of the only solutions in this app that TLEs on LeetCode!
 class Solution:
     def isIdealPermutation(self, nums: List[int]) -> bool:
         tmp = nums.copy()
