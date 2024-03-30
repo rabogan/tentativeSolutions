@@ -20,7 +20,6 @@ class Solution {
         before.next = remaining.next;
         after.next = null;
         head = lessThan.next;
-
         return head;
     }
 }
