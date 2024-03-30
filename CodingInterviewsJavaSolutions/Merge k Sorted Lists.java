@@ -30,7 +30,6 @@ class Solution {
                 tail = tail.next;
             }
         }
-
         return head;
     }
 }
