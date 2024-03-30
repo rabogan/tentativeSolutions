@@ -19,17 +19,20 @@ public:
 SAME ENERGY (and, indeed, the same solution) as for LeetCode 236 here:
 https://leetcode.com/submissions/detail/807761388/
 
-1)  We know that if P is on the LEFT, and Q on the RIGHT, the ROOT is the LCA!!!
+1)  We know that if P is on the LEFT, and Q on the RIGHT, 
+the ROOT is the LCA!!!
 So, there are 4 cases for p and q's existence in the tree
 a)  P and Q are both in the tree
 b)  P is in the tree, Q is NOT
 c)  P is NOT in the tree, Q is in the tree
 d)  Neither are in the tree
-2)  For the recursive solution, we will return the LCA node if p and q are both in the tree
+2)  For the recursive solution, we will return the LCA node 
+if p and q are both in the tree
 That is given by:
 if(left && right)
 return root;
-3)  What are left and right?  Well, we recursively call them from the root
+3)  What are left and right?  Well, we recursively call them 
+from the root
 Using left = LCA(root->left,p,q)
 right = LCA(root->right,p,q)
 4)  If only one exists, return the node found
@@ -37,8 +40,9 @@ if(left)
 return left;
 return right;
 :)
-5)  If p and q are not left and right, and neither p nor q are in the tree, return nullptr!
+5)  If p and q are not left and right, and neither p nor q 
+are in the tree, return nullptr!
 given at the start by
 if(!root || p==root||q==root)
 return root;
- */
+*/
