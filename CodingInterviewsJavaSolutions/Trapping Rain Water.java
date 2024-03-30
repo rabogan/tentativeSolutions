@@ -22,7 +22,6 @@ class Solution {
             maxRight = Math.max(maxRight, height[i]);
             answer += maxRight - height[i];
         }
-        
         return answer;
     }
 }
