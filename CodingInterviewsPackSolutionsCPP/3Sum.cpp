@@ -1,18 +1,3 @@
-/*
-This approach adapts the simpler 2-sum 2-pointers (sorted) approach
-Hash table approach dealt with in the 4-sum answer :)
-
-1)  Firstly, set up the return value, and sort your array
-2)  We're going to loop on each index (up to AND INCLUDING size-3...work that out)
-2b) BUT...to avoid duplicate values, we must check with (i>0 && nums[i]==nums[i-1])
-3)  If that's clear, We then apply a slightly more sophisticated version of the 2-sum
-4)  If our sum==0, then we'll need to process things...but don't forget to add the values to your result!
-5)  Increment left as usual...and make sure neighbours are not duplicates...if so, increment left again
-6)  Decrement right...if neighbours are duplicates, decrement right again
-7)  Process if sum>0 and sum<0 as usual...
-8)  After the loops end, return the result!!
-*/
-
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
@@ -56,3 +41,17 @@ public:
         return ret;
     }
 };
+/*
+This approach adapts the simpler 2-sum 2-pointers (sorted) approach
+Hash table approach dealt with in the 4-sum answer :)
+
+1)  Firstly, set up the return value, and sort your array
+2)  We're going to loop on each index (up to AND INCLUDING size-3...work that out)
+2b) BUT...to avoid duplicate values, we must check with (i>0 && nums[i]==nums[i-1])
+3)  If that's clear, We then apply a slightly more sophisticated version of the 2-sum
+4)  If our sum==0, then we'll need to process things...but don't forget to add the values to your result!
+5)  Increment left as usual...and make sure neighbours are not duplicates...if so, increment left again
+6)  Decrement right...if neighbours are duplicates, decrement right again
+7)  Process if sum>0 and sum<0 as usual...
+8)  After the loops end, return the result!!
+*/
