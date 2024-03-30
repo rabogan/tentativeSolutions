@@ -1,6 +1,5 @@
 class Solution {
     typedef long long LL;
-    
     bool inRange(LL low, LL high, LL num){
         return low<=num && num<=high;
     }
@@ -15,8 +14,6 @@ class Solution {
         q.push(num);
         return true;
     }
-    
-    
 public:
     vector<int> countSteppingNumbers(LL low, LL high) {
         queue<LL>q;
