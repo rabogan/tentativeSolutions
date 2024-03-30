@@ -27,7 +27,7 @@ public:
 };
 /*
 This is the BFS approach.  The key observations are simple:
-1)   If we have N levels, we need to return N values
+1) If we have N levels, we need to return N values
 2) Level-by-level, we want the value from the FINAL node 
 from each
 3) Easily achievable with BFS and the 'size trick'
