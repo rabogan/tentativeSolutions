@@ -16,7 +16,6 @@ class Solution {
         if (cur.length() > 0) {
             result.add(cur.toString());
         }
-        
         return result;
     }
     
