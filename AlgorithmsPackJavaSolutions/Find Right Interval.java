@@ -1,5 +1,3 @@
-import java.util.TreeMap;
-
 class Solution {
     public int[] findRightInterval(int[][] intervals) {
         TreeMap<Integer, Integer> startsToIndices = new TreeMap<>();
