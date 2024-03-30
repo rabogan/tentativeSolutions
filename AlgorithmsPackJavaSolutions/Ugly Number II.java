@@ -1,5 +1,3 @@
-import java.util.PriorityQueue;
-
 class Solution {
     public int nthUglyNumber(int n) {
         PriorityQueue<Long> minHeap = new PriorityQueue<>();
