@@ -30,8 +30,7 @@ class Solution {
         
         Queue<Cell> queue = new LinkedList<>();
         boolean[][] visited = new boolean[rows][cols];
-        
-        // Find all gate cells and add them to the queue
+
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (rooms[r][c] == 0) {
@@ -40,8 +39,7 @@ class Solution {
                 }
             }
         }
-        
-        // Perform BFS to fill the spaces with the shortest distance
+
         while (!queue.isEmpty()) {
             Cell cell = queue.poll();
             int r = cell.r;
