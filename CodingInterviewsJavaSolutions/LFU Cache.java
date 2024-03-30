@@ -1,5 +1,3 @@
-import java.util.*;
-
 class LFUCache {
     private int capacity;
     private int minFreq;
