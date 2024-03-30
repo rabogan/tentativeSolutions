@@ -1,3 +1,42 @@
+class LRUCache {
+private:    
+    int size{};
+    list<int>lru;
+    unordered_map<int,int>key_value;
+    unordered_map<int,list<int>::iterator>key_iterator;
+public:
+    LRUCache(int capacity):size(capacity) {
+        
+    }
+    
+    int get(int key) {
+        if(!key_value.count(key))
+            return -1;
+        updateLRU(key);
+        return key_value[key];
+    }
+    
+    void put(int key, int value) {
+        if(key_value.size()==size && key_value.count(key)==0)
+            evict();
+        updateLRU(key);
+        key_value[key] = value;
+    }
+    
+    void updateLRU(int key){
+        if(key_value.count(key))
+            lru.erase(key_iterator[key]);
+        lru.push_front(key);
+        key_iterator[key] = lru.begin();
+    }
+    
+    void evict(){
+        key_value.erase(lru.back());
+        key_iterator.erase(lru.back());
+        lru.pop_back();
+    }
+};
+
 /*
 This can be done using C++ STL list as well!
 
@@ -48,42 +87,3 @@ key_iterator[key] = value;
 a)  Remove the BACK element from both tables!  .erase(lru.back())
 b)  Remove the LAST element in the DLL (lru.pop_back())
 */
-
-class LRUCache {
-private:    
-    int size{};
-    list<int>lru;
-    unordered_map<int,int>key_value;
-    unordered_map<int,list<int>::iterator>key_iterator;
-public:
-    LRUCache(int capacity):size(capacity) {
-        
-    }
-    
-    int get(int key) {
-        if(!key_value.count(key))
-            return -1;
-        updateLRU(key);
-        return key_value[key];
-    }
-    
-    void put(int key, int value) {
-        if(key_value.size()==size && key_value.count(key)==0)
-            evict();
-        updateLRU(key);
-        key_value[key] = value;
-    }
-    
-    void updateLRU(int key){
-        if(key_value.count(key))
-            lru.erase(key_iterator[key]);
-        lru.push_front(key);
-        key_iterator[key] = lru.begin();
-    }
-    
-    void evict(){
-        key_value.erase(lru.back());
-        key_iterator.erase(lru.back());
-        lru.pop_back();
-    }
-};
