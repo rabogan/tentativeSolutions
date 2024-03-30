@@ -1,3 +1,49 @@
+class Solution {
+public:
+    vector<int>next_smaller_element(vector<int>&heights){
+        int n = heights.size();
+        vector<int>result(n,n);
+        stack<int>stk;
+        
+        for(int i = 0; i < n; i++){
+            while(!stk.empty() && heights[i] < heights[stk.top()]){
+                result[stk.top()] = i;
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        return result;
+    }
+    
+    vector<int>previous_smaller_element(vector<int>&heights){
+        vector<int>res = heights;
+        reverse(res.begin(),res.end());
+        res = next_smaller_element(res);
+        reverse(res.begin(),res.end());
+        int n = res.size();
+        for(int i = 0; i < n; i++){
+            res[i] = n-res[i]-1;
+        }
+        return res;
+    }
+    
+    int largestRectangleArea(vector<int>& heights) {
+        vector<int>next = next_smaller_element(heights);
+        vector<int>prev = previous_smaller_element(heights);
+        int sz = heights.size();
+        int maxArea = 0;
+        
+        for(int i = 0; i < sz; i++){
+            int left = prev[i]+1;
+            int right = next[i]-1;
+            int area = heights[i] * (right-left+1);
+            maxArea = max(area,maxArea);
+        }
+        
+        return maxArea;
+    }
+};
+
 /*
 A LONG FORM summary for LeetCode 84
 
@@ -46,49 +92,3 @@ So, our main solution will find 2 vectors:
 3)  We iterate through our heights, and calculate an INITIAL AREA for a rectangle at height[i]
 4)  We maximize among these areas to get our result, returning (in my exemplar case) maxArea
 */
-
-class Solution {
-public:
-    vector<int>next_smaller_element(vector<int>&heights){
-        int n = heights.size();
-        vector<int>result(n,n);
-        stack<int>stk;
-        
-        for(int i = 0; i < n; i++){
-            while(!stk.empty() && heights[i] < heights[stk.top()]){
-                result[stk.top()] = i;
-                stk.pop();
-            }
-            stk.push(i);
-        }
-        return result;
-    }
-    
-    vector<int>previous_smaller_element(vector<int>&heights){
-        vector<int>res = heights;
-        reverse(res.begin(),res.end());
-        res = next_smaller_element(res);
-        reverse(res.begin(),res.end());
-        int n = res.size();
-        for(int i = 0; i < n; i++){
-            res[i] = n-res[i]-1;
-        }
-        return res;
-    }
-    
-    int largestRectangleArea(vector<int>& heights) {
-        vector<int>next = next_smaller_element(heights);
-        vector<int>prev = previous_smaller_element(heights);
-        int sz = heights.size();
-        int maxArea = 0;
-        
-        for(int i = 0; i < sz; i++){
-            int left = prev[i]+1;
-            int right = next[i]-1;
-            int area = heights[i] * (right-left+1);
-            maxArea = max(area,maxArea);
-        }
-        
-        return maxArea;
-    }
-};
