@@ -1,7 +1,3 @@
-/*
-We will permute all iterations/permutations for each index...
-swapping the numbers each time
-*/
 vector<vector<int>>result;
 vector<int>nums;
 
@@ -27,3 +23,8 @@ public:
         return result;
     }
 };
+
+/*
+We will permute all iterations/permutations for each index...
+swapping the numbers each time
+*/
