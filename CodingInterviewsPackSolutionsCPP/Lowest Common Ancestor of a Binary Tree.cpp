@@ -1,3 +1,20 @@
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root||root==p||root==q)
+            return root;
+        
+        TreeNode*left = lowestCommonAncestor(root->left,p,q);
+        TreeNode*right = lowestCommonAncestor(root->right,p,q);
+        
+        if(left&&right)
+            return root;
+        if(left)
+            return left;
+        return right;
+    }
+};
+
 /*
 1)  We know that if P is on the LEFT, and Q on the RIGHT, the ROOT is the LCA!!!
 So, there are 4 cases for p and q's existence in the tree
@@ -22,19 +39,3 @@ given at the start by
 if(!root || p==root||q==root)
 return root;
  */
-class Solution {
-public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if(!root||root==p||root==q)
-            return root;
-        
-        TreeNode*left = lowestCommonAncestor(root->left,p,q);
-        TreeNode*right = lowestCommonAncestor(root->right,p,q);
-        
-        if(left&&right)
-            return root;
-        if(left)
-            return left;
-        return right;
-    }
-};
