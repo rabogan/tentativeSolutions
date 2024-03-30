@@ -1,6 +1,3 @@
-import heapq
-from typing import List
-
 class Solution:
     def dijkstra(self, adjList: List[List[Tuple[int, int]]], nodes: int, src: int) -> List[int]:
         dist = [float('inf')] * nodes
