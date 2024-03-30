@@ -7,7 +7,6 @@ class Solution {
             tortoise = tortoise.next;
             hare = hare.next.next;
         }
-
         return tortoise;
     }
 }
