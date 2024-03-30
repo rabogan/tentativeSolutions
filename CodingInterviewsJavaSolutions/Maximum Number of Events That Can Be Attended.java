@@ -25,7 +25,6 @@ class Solution {
                 attended++;
             }
         }
-        
         return attended;
     }
 }
