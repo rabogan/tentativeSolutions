@@ -8,7 +8,6 @@ class Solution {
             maxSoFar = Math.max(nums[i], nums[i] + maxSoFar);
             result = Math.max(result, maxSoFar);
         }
-        
         return result;
     }
 }
