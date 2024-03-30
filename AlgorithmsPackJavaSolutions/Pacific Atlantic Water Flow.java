@@ -50,11 +50,9 @@ class Solution {
             pacificGraph[0][c] = true;
         }
         
-        // Perform BFS starting from the border cells to reach all accessible cells
         bfs(heights, atlanticQueue, atlanticGraph);
         bfs(heights, pacificQueue, pacificGraph);
         
-        // Check for cells that can flow to both the Pacific and Atlantic oceans
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (atlanticGraph[r][c] && pacificGraph[r][c]) {
