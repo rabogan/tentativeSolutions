@@ -1,6 +1,6 @@
 class Solution {
     static final long MOD = (long) 1e9 + 7;
-    static final long OO = ((long) 1e9 + 10) * 200; // > 200 edge * maxedge-cost
+    static final long OO = ((long) 1e9 + 10) * 200;
 
     static class Edge implements Comparable<Edge> {
         int to;
