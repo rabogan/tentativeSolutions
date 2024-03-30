@@ -1,4 +1,4 @@
- class Solution {
+class Solution {
 public:
     int longestMountain(vector<int>& arr) {
         int sz = arr.size();
