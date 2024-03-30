@@ -1,4 +1,3 @@
-https://leetcode.com/problems/all-oone-data-structure/solutions/91416/java-ac-all-strict-o1-not-average-o1-easy-to-read/
 class AllOne:
     def __init__(self):
         self.buckets = []
@@ -57,3 +56,5 @@ class AllOne:
         
     def getMinKey(self) -> str:
         return '' if not self.buckets else next(iter(self.buckets[0][1]))
+
+CREDIT: https://leetcode.com/problems/all-oone-data-structure/solutions/91416/java-ac-all-strict-o1-not-average-o1-easy-to-read/
