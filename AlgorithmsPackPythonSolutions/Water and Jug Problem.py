@@ -1,6 +1,3 @@
-from typing import List
-from collections import deque
-
 class Solution:
     def canMeasureWater(self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int) -> bool:
         def process(q: deque, visited: set, jug1: int, jug2: int, target: int) -> None:
