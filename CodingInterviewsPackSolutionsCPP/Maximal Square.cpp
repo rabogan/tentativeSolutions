@@ -72,13 +72,16 @@ public:
         return area;
     }
 };
-    /*
-    The NON-DP solution is presented here :)
-    Take a look at the maximal rectangle solution.....
-    https://leetcode.com/submissions/detail/804873331/
+/*
+The NON-DP solution is presented here :)
+Take a look at the maximal rectangle solution.....
+https://leetcode.com/submissions/detail/804873331/
     
-    However, because we STRICTLY want a SQUARE area, our area function needs tweaking!
-    Basically, for any given LENGTH or HEIGHT (at a spot in our accumulated sum slice of a matrix)
-    we look for whatever the MINIMUM value among the length (right-left+1) and height (heights[i])
-    would be.  Our height comes from the histogram, and the length from the next/prev smaller index functions
-    */
+However, because we STRICTLY want a SQUARE area, our area 
+function needs tweaking!  Basically, for any given LENGTH 
+or HEIGHT (at a spot in our accumulated sum slice of a matrix),
+we look for whatever the MINIMUM value among the length 
+(right-left+1) and height (heights[i]) would be. 
+Our height comes from the histogram, and the length from 
+the next/prev smaller index functions
+*/
