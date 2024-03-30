@@ -1,19 +1,19 @@
 class Solution {
     public int getImportance(List<Employee> employees, int id) {
-        Map<Integer, Employee> idToEmp = new HashMap<>();  // Allows us to map from an id to the corresponding employee
+        Map<Integer, Employee> idToEmp = new HashMap<>();  
         for (Employee emp : employees) {
-            idToEmp.put(emp.id, emp);  // Map id to the corresponding employee
+            idToEmp.put(emp.id, emp);
         }
         
         return dfs(id, idToEmp);
     }
 
     private int dfs(int id, Map<Integer, Employee> idToEmp) {
-        Employee emp = idToEmp.get(id);  // Get the employee from the ID
+        Employee emp = idToEmp.get(id); 
 
-        int result = emp.importance;  // Get the importance value of that employee
-        for (int subEmp : emp.subordinates) {  // Iterate through all subordinates
-            result += dfs(subEmp, idToEmp);  // Sum the importances of each subordinate
+        int result = emp.importance; 
+        for (int subEmp : emp.subordinates) { 
+            result += dfs(subEmp, idToEmp);
         }
 
         return result;
