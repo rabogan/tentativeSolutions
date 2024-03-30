@@ -1,5 +1,4 @@
 class FirstUnique:
-
     def __init__(self, nums: List[int]):
         self.uniqueNumbers = []
         self.valueToNode = OrderedDict()
