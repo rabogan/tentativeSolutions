@@ -7,17 +7,17 @@ class Employee:
 
 class Solution:
     def getImportance(self, employees: List['Employee'], id: int) -> int:
-        id_to_emp = {}  # Allows us to map from an id to the corresponding employee
+        id_to_emp = {} 
         for emp in employees:
-            id_to_emp[emp.id] = emp  # Map id to the corresponding employee
+            id_to_emp[emp.id] = emp
         
         return self.dfs(id, id_to_emp)
 
     def dfs(self, id: int, id_to_emp: Dict[int, Employee]) -> int:
-        emp = id_to_emp[id]  # Get the employee from the ID
+        emp = id_to_emp[id]
 
-        result = emp.importance  # Get the importance value of that employee
-        for subEmp in emp.subordinates:  # Iterate through all subordinates
-            result += self.dfs(subEmp, id_to_emp)  # Sum the importances of each subordinate
+        result = emp.importance 
+        for subEmp in emp.subordinates:
+            result += self.dfs(subEmp, id_to_emp)
 
         return result
