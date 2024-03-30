@@ -1,7 +1,5 @@
 class Solution {
 public:
-
-
     typedef vector<vector<int>>GRAPH;
 
     void addEdge(GRAPH&graph, int from, int to){
