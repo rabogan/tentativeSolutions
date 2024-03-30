@@ -86,7 +86,6 @@ class Solution {
         for (int r = 0; r < rows; r++) {
             maxArea = Math.max(maxArea, largestRectangle(matrix2[r]));
         }
-
         return maxArea;
     }
 }
