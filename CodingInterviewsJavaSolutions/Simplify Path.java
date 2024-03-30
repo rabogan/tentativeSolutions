@@ -46,7 +46,6 @@ class Solution {
         while (!stk.isEmpty()) {
             result.insert(0, "/" + stk.pop());
         }
-        
         return result.toString();
     }
 }
