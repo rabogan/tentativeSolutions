@@ -1,5 +1,3 @@
-from typing import List
-
 class Entry:
     def __init__(self, id: int, time: int):
         self.id = id
