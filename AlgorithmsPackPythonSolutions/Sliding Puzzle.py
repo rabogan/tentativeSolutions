@@ -35,7 +35,7 @@ class Solution:
                         visited.add(cur_str)
                         q.append(cur_str)
                     
-                    cur[idx1], cur[idx2] = cur[idx2], cur[idx1]  # Revert the swap
+                    cur[idx1], cur[idx2] = cur[idx2], cur[idx1] 
                     
             level += 1
         
