@@ -1,20 +1,3 @@
-/*
-KAHN's ALGORITHM SOLUTION
-1)  Notice how we're building the graph.   It's a simple vector<vector<int>>GRAPH!
-2)  Topological sorting is DEMANDED here.   The prerequisites make it obvious.  To facilitate this, we construct a DAG, with directed edges
-3)  I chose to call the Topological Sort with the (constructed) graph, and a vector<bool>visited array.  I'm not sure if the boolean array is necessary, but felt it would help speed things up.  if(visited[node]==true), we have a cycle!
-
-PART II
-Topological Sorting deserves a section by itself
-1) First, get the size of the graph
-2) Make a vector of 'indegrees', and calculate the number of edges coming 'INTO' each node
-2b)  The loop is a little convoluted!
-3)  After that, we need to construct and add to the queue.   Where we have '0' in-degree nodes, we will push them in the queue (or priority queue, if we want lexicographical sorting)
-4)  We'll iterate through 'popped' elements, pushing them into a results vector.  Of course, if we've 'met' them along the way, we don't have a DAG!
-5)  However, if our 'current' element (popped from the queue) passes the sniff test, then we need to cleverly look at the neighbouring/following node.  We want to a) SUBTRACT one from the 'indegree' vector element represented by that node.  AT THE SAME TIME, we want to push that node into the queue if the indegree[node] value drops to 0!  i.e.
-if(--indegree[node]==0)  q.push(node);
-6)  The last check (after the queue is empty) is to see whether the result.size() == graph.size().  If NOT, then we have cycles - a disaster!  If so, then we should be fine :)
-*/
 class Solution {
     typedef vector<vector<int>>GRAPH;
     
@@ -71,3 +54,38 @@ public:
         return topSort(graph,visited);
     }
 };
+/*
+KAHN's ALGORITHM SOLUTION:
+1) Notice how we're building the graph.   
+It's a simple vector<vector<int>>GRAPH!
+2) Topological sorting is DEMANDED here.   The prerequisites 
+make it obvious.  To facilitate this, we construct a DAG, with 
+directed edges
+3) I chose to call the Topological Sort with the (constructed)
+graph, and a vector<bool>visited array.  I'm not sure if the 
+boolean array is necessary, but felt it would help speed things 
+up.  if(visited[node]==true), we have a cycle!
+
+PART II
+Topological Sorting deserves a section by itself
+1) First, get the size of the graph
+2) Make a vector of 'indegrees', and calculate the number of 
+edges coming 'INTO' each node
+2b) The loop is a little convoluted!
+3) After that, we need to construct and add to the queue.
+Where we have '0' in-degree nodes, we will push them in the 
+queue (or priority queue, if we want lexicographical sorting)
+4) We'll iterate through 'popped' elements, pushing them into
+a results vector.  Of course, if we've 'met' them along the way, 
+we don't have a DAG!
+5) However, if our 'current' element (popped from the queue) 
+passes the sniff test, then we need to cleverly look at the 
+neighbouring/following node.  We want to a) SUBTRACT one 
+from the 'indegree' vector element represented by that node.
+AT THE SAME TIME, we want to push that node into the queue 
+if the indegree[node] value drops to 0!  i.e.
+if(--indegree[node]==0)  q.push(node);
+6)  The last check (after the queue is empty) is to see 
+whether the result.size() == graph.size().  If NOT, then 
+we have cycles - a disaster!  If so, then we should be fine :)
+*/
