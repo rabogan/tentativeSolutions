@@ -1,3 +1,42 @@
+class listNodeComp{
+public:
+    int operator()(ListNode* n1, ListNode* n2){
+        return n1->val > n2->val;
+    }
+};
+
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        priority_queue<ListNode*,vector<ListNode*>,listNodeComp>minHeap;
+        
+        int sz = lists.size();
+        
+        for(int i = 0; i < sz; i++){
+            if(lists[i])
+                minHeap.push(lists[i]);
+        }
+        
+        ListNode* head = nullptr;
+        ListNode* tail = head;
+        
+        while(!minHeap.empty()){
+            ListNode* cur = minHeap.top();
+            minHeap.pop();
+            
+            if(cur->next)
+                minHeap.push(cur->next);
+            
+            if(!head)
+                head = tail = cur;
+            else{
+                tail->next = cur;
+                tail = tail->next;
+            }
+        }
+        return head;
+    }
+};
 /*
 Brute Force Solution:
 Look at the Merge Two Sorted Linked Lists here:
@@ -40,42 +79,3 @@ Note the use of GREATER THAN!  This is because we want to add the minimum values
 The PRIORITY_QUEUE, of course, uses:
 ListNode*, vector<ListNode*>, listNodeComp 
  */
-class listNodeComp{
-public:
-    int operator()(ListNode* n1, ListNode* n2){
-        return n1->val > n2->val;
-    }
-};
-
-class Solution {
-public:
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
-        priority_queue<ListNode*,vector<ListNode*>,listNodeComp>minHeap;
-        
-        int sz = lists.size();
-        
-        for(int i = 0; i < sz; i++){
-            if(lists[i])
-                minHeap.push(lists[i]);
-        }
-        
-        ListNode* head = nullptr;
-        ListNode* tail = head;
-        
-        while(!minHeap.empty()){
-            ListNode* cur = minHeap.top();
-            minHeap.pop();
-            
-            if(cur->next)
-                minHeap.push(cur->next);
-            
-            if(!head)
-                head = tail = cur;
-            else{
-                tail->next = cur;
-                tail = tail->next;
-            }
-        }
-        return head;
-    }
-};
