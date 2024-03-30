@@ -1,5 +1,3 @@
-import collections
-
 class Solution:
     def process(self, q, visited, num, goal):
         if num == goal:
