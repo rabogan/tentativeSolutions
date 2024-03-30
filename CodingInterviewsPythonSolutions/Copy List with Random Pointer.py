@@ -10,14 +10,14 @@ class Solution:
         if not head:
             return None
 
-        # Create a mapping of original nodes to their corresponding copies
+# Create a mapping of original nodes to their corresponding copies
         node_map = {}
         cur = head
         while cur:
             node_map[cur] = Node(cur.val)
             cur = cur.next
 
-        # Assign next and random pointers for the copy nodes based on the mapping
+# Assign next and random pointers for the copy nodes based on the mapping
         cur = head
         while cur:
             copy_node = node_map[cur]
