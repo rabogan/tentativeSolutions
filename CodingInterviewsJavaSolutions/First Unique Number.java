@@ -1,6 +1,3 @@
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 class FirstUnique {
     private Map<Integer, Integer> valueToNode;
     private List<Integer> uniqueNumbers;
