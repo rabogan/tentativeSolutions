@@ -23,7 +23,6 @@ class Solution {
             }
             stk.push(i);
         }
-
         return result;
     }
 
