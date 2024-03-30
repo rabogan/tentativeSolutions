@@ -1,3 +1,31 @@
+class FirstUnique {
+    list<int>uniqueNumbers;
+    unordered_map<int,list<int>::iterator>valueToNode;
+public:
+    FirstUnique(vector<int>& nums) {
+        for(int i = 0; i < nums.size(); i++)
+            add(nums[i]);
+    }
+    
+    int showFirstUnique() {
+        if(!uniqueNumbers.empty())
+            return uniqueNumbers.front();
+        return -1;
+    }
+    
+    void add(int value) {
+        if(valueToNode.count(value)){
+            if(valueToNode[value] != uniqueNumbers.end()){
+                uniqueNumbers.erase(valueToNode[value]);
+                valueToNode[value] = uniqueNumbers.end();
+            }
+        }else{
+            uniqueNumbers.push_back(value);
+            valueToNode[value] = --uniqueNumbers.end();
+        }
+    }
+};
+
 /*
 SOLUTION:
 To retrieve a unique number in O(1) time, we need to use a DLL or queue
@@ -31,31 +59,3 @@ The adding is fairly rudimentary, iterating through the vector given, and using 
 The showFirstUnique scrapes the first value from the 'front()' of the linked list we made - assuming the LL isn't EMPTY!
 If it empty, return -1 as described!
 */
-
-class FirstUnique {
-    list<int>uniqueNumbers;
-    unordered_map<int,list<int>::iterator>valueToNode;
-public:
-    FirstUnique(vector<int>& nums) {
-        for(int i = 0; i < nums.size(); i++)
-            add(nums[i]);
-    }
-    
-    int showFirstUnique() {
-        if(!uniqueNumbers.empty())
-            return uniqueNumbers.front();
-        return -1;
-    }
-    
-    void add(int value) {
-        if(valueToNode.count(value)){
-            if(valueToNode[value] != uniqueNumbers.end()){
-                uniqueNumbers.erase(valueToNode[value]);
-                valueToNode[value] = uniqueNumbers.end();
-            }
-        }else{
-            uniqueNumbers.push_back(value);
-            valueToNode[value] = --uniqueNumbers.end();
-        }
-    }
-};
