@@ -1,5 +1,3 @@
-import java.util.*;
-
 class LRUCache {
     private int size;
     private List<Integer> lru;
