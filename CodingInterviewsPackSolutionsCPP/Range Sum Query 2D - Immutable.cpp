@@ -1,20 +1,3 @@
-/*
-0) First of all, to do this in O(1) time requires knowledge of IMAGE INTEGRAL!
-1) Anyway, start by doing a cumulative sum by row...
-2) Then cumulative sum by column!  (Be careful about your loops)
-These pre-computation steps take O(NM) time
-
-3) There's a very clever computation, and you should sketch out the areas involved to understand it
-Take the bottom corner (r2,c2)
-Subtract from that value the cell left of the bottom left
-Subtract from that value the cell above the top right
-ADD the cell diagonally upper left of the top left
-You're taking a BIG area, then subtracting two rectangles (out of the left-most and upper-bounds) from it
-After that, you're ADDING the small upper-left area that you initially subtracted TWICE with the previous two operations
-
-4) Use modular programming to help yourself as much as you can!
-*/
-
 class NumMatrix {
     vector<vector<int>>accum;
 public:
@@ -52,3 +35,19 @@ public:
         return cellSum(row2,col2)-cellSum(row2,col1-1)-cellSum(row1-1,col2)+cellSum(row1-1,col1-1);
     }
 };
+/*
+0) First of all, to do this in O(1) time requires knowledge of IMAGE INTEGRAL!
+1) Anyway, start by doing a cumulative sum by row...
+2) Then cumulative sum by column!  (Be careful about your loops)
+These pre-computation steps take O(NM) time
+
+3) There's a very clever computation, and you should sketch out the areas involved to understand it
+Take the bottom corner (r2,c2)
+Subtract from that value the cell left of the bottom left
+Subtract from that value the cell above the top right
+ADD the cell diagonally upper left of the top left
+You're taking a BIG area, then subtracting two rectangles (out of the left-most and upper-bounds) from it
+After that, you're ADDING the small upper-left area that you initially subtracted TWICE with the previous two operations
+
+4) Use modular programming to help yourself as much as you can!
+*/
