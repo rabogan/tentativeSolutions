@@ -11,10 +11,10 @@ class Solution:
         queue.append(start)
         visited[start[0]][start[1]] = True
 
-        level = 0  # Initialize the level
+        level = 0 
 
         while queue:
-            level += 1  # Increment the level
+            level += 1 
             size = len(queue)
             for _ in range(size):
                 r, c = queue.popleft()
