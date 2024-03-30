@@ -15,7 +15,6 @@ class Solution {
                 stack.addLast(i);
             }
         }
-        
         return res;
     }
 }
