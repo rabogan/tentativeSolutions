@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 class Solution {
     private int[][] memory;
     private int[][] cuboidsg;
