@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/max-value-of-equation/discuss/709697/Java-PriorityQueue-Solution-!!!
-
 class Solution {
     public int findMaxValueOfEquation(int[][] points, int k) {
         	PriorityQueue<int[]> pq = new PriorityQueue<int[]>((a, b)->Integer.compare(b[0], a[0]));
@@ -16,3 +14,4 @@ class Solution {
 	return res;
     }
 }
+// https://leetcode.com/problems/max-value-of-equation/discuss/709697/Java-PriorityQueue-Solution-!!!
