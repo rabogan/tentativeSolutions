@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     private boolean inRange(long low, long high, long num) {
         return low <= num && num <= high;
