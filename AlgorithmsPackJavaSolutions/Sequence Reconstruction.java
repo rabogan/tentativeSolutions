@@ -1,10 +1,3 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-
 class Solution {
     public boolean sequenceReconstruction(int[] org, List<List<Integer>> seqs) {
         Map<Integer, Integer> indegrees = new HashMap<>();
