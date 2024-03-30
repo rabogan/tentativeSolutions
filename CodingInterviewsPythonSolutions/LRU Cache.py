@@ -1,5 +1,4 @@
 class LRUCache:
-
     def __init__(self, capacity: int):
         self.size = capacity
         self.lru = []
