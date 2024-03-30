@@ -1,3 +1,32 @@
+class Solution {
+public:
+    int findMaxValueOfEquation(vector<vector<int>>& points, int k) {
+        int n = points.size();
+        int left = 0;
+        int right = 1;
+        int mx = INT_MIN;
+        set<pair<int,int>>mySet;
+        
+        while(left<n){
+            if(!mySet.empty())
+                mySet.erase(mySet.find({points[left][0]+points[left][1],left}));  //Removed the 'old' xj and yj, which are now xi and xj
+                                
+            while(right < n && (points[right][0]-points[left][0]<=k)){  //xj-xi<=k
+                mySet.insert({points[right][0]+points[right][1],right});  //yi + yj
+                right++; //Expands the window
+            }
+            
+            if(!mySet.empty()){
+                int curMax = points[left][1]-points[left][0] + mySet.rbegin()->first;   //yi-xi+xj+yj
+                mx = max(mx,curMax);
+            }
+            left++;
+            right = max(right,left+1);
+        }
+        return mx;        
+    }
+};
+
 /*
 DETAILED SOLUTION (LEFT-TO-RIGHT APPROACH)
 
@@ -63,32 +92,3 @@ xj = [right][0]
 yi = [left][1]
 yj = [right][1]
 */
-
-class Solution {
-public:
-    int findMaxValueOfEquation(vector<vector<int>>& points, int k) {
-        int n = points.size();
-        int left = 0;
-        int right = 1;
-        int mx = INT_MIN;
-        set<pair<int,int>>mySet;
-        
-        while(left<n){
-            if(!mySet.empty())
-                mySet.erase(mySet.find({points[left][0]+points[left][1],left}));  //Removed the 'old' xj and yj, which are now xi and xj
-                                
-            while(right < n && (points[right][0]-points[left][0]<=k)){  //xj-xi<=k
-                mySet.insert({points[right][0]+points[right][1],right});  //yi + yj
-                right++; //Expands the window
-            }
-            
-            if(!mySet.empty()){
-                int curMax = points[left][1]-points[left][0] + mySet.rbegin()->first;   //yi-xi+xj+yj
-                mx = max(mx,curMax);
-            }
-            left++;
-            right = max(right,left+1);
-        }
-        return mx;        
-    }
-};
