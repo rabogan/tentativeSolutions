@@ -1,10 +1,3 @@
-/*
-
-In Java, there is no built-in equivalent to sort(nums.rbegin(), nums.rend()) in C++, which sorts the elements in reverse order. However, you can achieve the same effect by reversing the array after sorting it in ascending order using Arrays.sort().
-
-This code sorts the array in ascending order using Arrays.sort(nums) and then reverses the array using the reverse() helper method. The rest of the logic remains the same as the C++ code.
-*/
-
 class Solution {
     public int reductionOperations(int[] nums) {
         Arrays.sort(nums);
@@ -32,3 +25,17 @@ class Solution {
         }
     }
 }
+/*
+NB
+In Java, there is no built-in equivalent to 
+sort(nums.rbegin(), nums.rend()) in C++,
+which sorts the elements in reverse order. 
+However, you can achieve the same effect by 
+reversing the array after sorting it in ascending
+order using Arrays.sort().
+
+This code sorts the array in ascending order 
+using Arrays.sort(nums) and then reverses the 
+array using the reverse() helper method.  
+The rest of the logic remains the same as the C++ code.
+*/
