@@ -1,5 +1,4 @@
-https://zhenyu0519.github.io/2020/03/21/lc934/
-
+# Credit: https://zhenyu0519.github.io/2020/03/21/lc934/
 class Solution:
     def shortestBridge(self, A: List[List[int]]) -> int:
         row, col = len(A), len(A[0])
