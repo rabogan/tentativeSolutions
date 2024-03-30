@@ -1,6 +1,3 @@
-import heapq
-from typing import List
-
 class Solution:
     MOD = int(1e9 + 7)
     OO = int(2e9 + 10)
