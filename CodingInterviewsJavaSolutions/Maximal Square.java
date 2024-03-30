@@ -23,7 +23,6 @@ class Solution {
             }
             stk.push(i);
         }
-
         return result;
     }
 
@@ -88,7 +87,6 @@ class Solution {
         for (int r = 0; r < rows; r++) {
             area = Math.max(area, squareArea(matrix2[r]));
         }
-
         return area;
     }
 }
